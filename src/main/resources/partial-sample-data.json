@@ -1,0 +1,42 @@
+{
+  "trafficMeasurements": [
+    {
+      "measurementTime": 86544,
+      "measurements": [
+        {
+          "startAvenue": "A",
+          "startStreet": "1",
+          "transitTime": 28.000987663134676,
+          "endAvenue": "B",
+          "endStreet": "1"
+        },
+        {
+          "startAvenue": "A",
+          "startStreet": "2",
+          "transitTime": 59.71131185379898,
+          "endAvenue": "A",
+          "endStreet": "1"
+        }
+      ]
+    },
+    {
+      "measurementTime": 86575,
+      "measurements": [
+        {
+          "startAvenue": "A",
+          "startStreet": "1",
+          "transitTime": 28.000987663134676,
+          "endAvenue": "B",
+          "endStreet": "1"
+        },
+        {
+          "startAvenue": "A",
+          "startStreet": "2",
+          "transitTime": 59.71131185379898,
+          "endAvenue": "A",
+          "endStreet": "1"
+        }
+      ]
+    }
+  ]
+}
