@@ -8,14 +8,12 @@ import zio.ZIO
 import zio.test.Assertion.equalTo
 import zio.test.{ZIOSpecDefault, assertZIO}
 
-/**
- * Spec example to learn graph Library
- * @ see http://www.scala-graph.org/guides/core-traversing.html
- */
+/** Spec example to learn graph Library
+  * \@ see http://www.scala-graph.org/guides/core-traversing.html
+  */
 object GraphSpec extends ZIOSpecDefault {
 
   override def spec = suite("GraphSpec")(
-
     test("Graph Spec Example") {
 
       val g: Graph[Int, WUnDiEdge] =
@@ -23,7 +21,7 @@ object GraphSpec extends ZIOSpecDefault {
       def n(outer: Int): g.NodeT = g get outer // look up 'outer' that is known to be contained
 
       val result = for {
-        path <- ZIO.succeed(n(1) pathTo n(4))
+        path      <- ZIO.succeed(n(1) pathTo n(4))
         shortPath <- ZIO.succeed(n(3) shortestPathTo (n(1)))
       } yield (path, shortPath)
 
@@ -37,9 +35,9 @@ object GraphSpec extends ZIOSpecDefault {
 
     },
 
-    /**
-     * @see https://www.tutorialspoint.com/design_and_analysis_of_algorithms/design_and_analysis_of_algorithms_shortest_paths.htm
-     */
+    /** @see
+      *   https://www.tutorialspoint.com/design_and_analysis_of_algorithms/design_and_analysis_of_algorithms_shortest_paths.htm
+      */
     test("Graph tutorial points") {
       val g: Graph[Int, WDiEdge] =
         Graph(
@@ -57,7 +55,7 @@ object GraphSpec extends ZIOSpecDefault {
           5 ~> 8 % 7,
           6 ~> 9 % 4,
           7 ~> 8 % 2,
-          8 ~> 6 % 3,
+          8 ~> 6 % 3
         )
 
       def n(outer: Int): g.NodeT = g get outer

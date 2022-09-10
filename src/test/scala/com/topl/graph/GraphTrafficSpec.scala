@@ -17,7 +17,7 @@ object GraphTrafficSpec extends ZIOSpecDefault {
       val result = for {
         nodeFrom  <- ZIO.succeed("A1")
         nodeTo    <- ZIO.succeed("B1")
-        averages  <- FileRepository.averageTraffic("partial-sample-data-2.json")
+        averages  <- FileRepository.averageTraffic("partial-sample-data-2.json", file = None)
         edges     <- ZIO.attempt(averages.map(GraphNodes.edgeFactory))
         graph     <- ZIO.attempt(Graph.from(GraphNodes.nodes, edges))
         path      <- ZIO.attempt(graph.get(nodeFrom) pathTo graph.get(nodeTo))
@@ -36,7 +36,7 @@ object GraphTrafficSpec extends ZIOSpecDefault {
       val result = for {
         nodeFrom  <- ZIO.succeed("A1")
         nodeTo    <- ZIO.succeed("C3")
-        averages  <- FileRepository.averageTraffic("sample-data.json")
+        averages  <- FileRepository.averageTraffic("sample-data.json", file = None)
         edges     <- ZIO.attempt(averages.map(GraphNodes.edgeFactory))
         graph     <- ZIO.attempt(Graph.from(GraphNodes.nodes, edges))
         shortPath <- ZIO.attempt(graph.get(nodeFrom) shortestPathTo graph.get(nodeTo))

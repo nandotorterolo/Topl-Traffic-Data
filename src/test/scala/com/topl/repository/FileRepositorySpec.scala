@@ -19,10 +19,10 @@ object FileRepositorySpec extends ZIOSpecDefault {
       val expected =
         Map(
           MeasurementKey("A1", "B1") -> BigDecimal(2), // avg of 1,2,3 = 6 / 3 = 2
-          MeasurementKey("A2", "A1") -> BigDecimal(6) // avg of 10,4,4 = 18 / 3 = 6
+          MeasurementKey("A2", "A1") -> BigDecimal(6)  // avg of 10,4,4 = 18 / 3 = 6
         )
       val result = for {
-        average <- FileRepository.averageTraffic("partial-sample-data-2.json")
+        average <- FileRepository.averageTraffic("partial-sample-data-2.json", file = None)
       } yield (average)
       assertZIO(result)(equalTo(expected))
     },
@@ -42,7 +42,7 @@ object FileRepositorySpec extends ZIOSpecDefault {
 
     // this test is to validate average measurement using some keys of sample data provided
     test("Average sample data provided") {
-      val k1 = MeasurementKey("A1","B1")
+      val k1 = MeasurementKey("A1", "B1")
       val k2 = MeasurementKey("A2", "A1")
       val expected = Map(
         k1 -> BigDecimal(35.32789981760104),
@@ -50,8 +50,8 @@ object FileRepositorySpec extends ZIOSpecDefault {
       )
 
       val result = for {
-        average <- FileRepository.averageTraffic("sample-data.json")
-        partialMap = Map( (k1,average(k1)),(k2,average(k2)))
+        average <- FileRepository.averageTraffic("sample-data.json", file = None)
+        partialMap = Map((k1, average(k1)), (k2, average(k2)))
       } yield (partialMap)
       assertZIO(result)(equalTo(expected))
     }

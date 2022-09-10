@@ -47,7 +47,7 @@ object FileRepository {
 
   def averageTraffic(
       fileName: String,
-      file: Option[URI] = None
+      file: Option[URI]
   ): ZIO[Any, Throwable, Map[MeasurementKey, BigDecimal]] = {
     parse(fileName, file)
       .map(

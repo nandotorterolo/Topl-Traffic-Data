@@ -33,18 +33,18 @@ Welcome: using dataset provided
 }
 
 
+➜  Topl-Traffic-Data git:(main) ✗ sh ./run.sh  --to B1 --from A1 --file /home/fernando/development/Topl-Traffic-Data/pepe.json
+Welcome: using external file
+{
+  "nodes" : "A1,B1",
+  "edges" : "A1~>B1 %28.00098766313468",
+  "weight" : 28.00098766313468
+}
+
+
 ```
 
 ![image](./src/main/resources/From_A1_To_A2.jpg)
-
-
-
-
-
-## TODOs
-
-1. Best Cli support, find a library to handle console arguments, with help, and parsing support.
-
 
 
 ## how to test
@@ -105,7 +105,8 @@ The input to the program will consist of the data file and two intersections.
 It must be possible to specify the location of the data file and the names of the two intersections on the command line. 
 The program output will describe a good route to travel from the first intersection to the second.
 
-##  Detailed requirements
+##  Detailed requirements provided
+
 The program will begin by reading a data file. 
 You can copy the data file from this link and have the program read the local copy or you can have the program read the file from the URL. 
 Either is acceptable.
